@@ -67,7 +67,10 @@ public class TestCases extends Wrappers {
 
         Thread.sleep(3000);
         System.out.println("Navigated to Google Form.");
+
+
         // Fill in the 'Crio Learner' in the first text box
+        System.out.println("Filling in the name: Crio Learner.");
         enterText(By.xpath("(//input[contains(@class,'zHQkBf')])[1]"), "Crio Learner");
         Thread.sleep(3000);
 
@@ -80,9 +83,11 @@ public class TestCases extends Wrappers {
 
         // Select the 'Automation Testing experience' radio button (assuming the label
         // contains 'Automation Testing')
+        System.out.println("Selecting the 'Automation Testing experience' radio button.");
         clickElement(By.xpath("//span[contains(@class,'tyNBNd')]//span[contains(text(),'0 - 2')]"));
 
         // Select checkboxes for 'Java', 'Selenium', and 'TestNG'
+        System.out.println("Selecting checkboxes for 'Java', 'Selenium', and 'TestNG'.");
         clickElement(By.xpath("//span[contains(text(),'Java')]"));
         clickElement(By.xpath("//span[contains(text(),'Selenium')]"));
         clickElement(By.xpath("//span[contains(text(),'TestNG')]"));
@@ -93,7 +98,7 @@ public class TestCases extends Wrappers {
          Thread.sleep(2000); 
          WebElement optionElement = driver.findElement(By.xpath("(//div[contains(@class,'ncFHed')]//span[not(contains(text(),'Choose'))])[1]"));
          optionElement.click();  
- 
+         System.out.println("Dropdown option selected.");
          Thread.sleep(3000);
 
         // Select dropdown = new Select(driver.findElement(By.xpath("//div[contains(@class,'ncFHed')]")));
@@ -104,13 +109,16 @@ public class TestCases extends Wrappers {
         // Provide the current date minus 7 days in the date field
         LocalDate dateMinus7 = LocalDate.now().minusDays(7);
         String formattedDate = dateMinus7.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+        System.out.println("Filling the date: " + formattedDate);
         enterText(By.xpath("//input[@type='date']"), formattedDate);
 
         // Provide the time '07:30' in the time field
+        System.out.println("Filling the time: 07:30.");
         enterText(By.xpath("(//input[contains(@class,'zHQkBf')])[3]"), "07");
         enterText(By.xpath("(//input[contains(@class,'zHQkBf')])[4]"), "30");
 
         // Submit the form
+        System.out.println("Submitting the form.");
         clickElement(By.xpath("//span[text()='Submit']"));
         Thread.sleep(5000);
 
