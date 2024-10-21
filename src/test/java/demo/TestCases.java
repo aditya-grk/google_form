@@ -49,6 +49,8 @@ public class TestCases extends Wrappers {
 
         driver.manage().window().maximize();
         setDriver(driver); 
+
+        System.out.println("Browser initialized and window maximized.");
         
     }
 
@@ -64,6 +66,7 @@ public class TestCases extends Wrappers {
                 "https://docs.google.com/forms/d/e/1FAIpQLSep9LTMntH5YqIXa5nkiPKSs283kdwitBBhXWyZdAS-e4CxBQ/viewform?pli=1");
 
         Thread.sleep(3000);
+        System.out.println("Navigated to Google Form.");
         // Fill in the 'Crio Learner' in the first text box
         enterText(By.xpath("(//input[contains(@class,'zHQkBf')])[1]"), "Crio Learner");
         Thread.sleep(3000);
@@ -72,6 +75,8 @@ public class TestCases extends Wrappers {
         String currentEpoch = String.valueOf(Instant.now().getEpochSecond());
         String message = "I want to be the best QA Engineer! " + currentEpoch;
         enterText(By.xpath("//textarea[@class='KHxj8b tL9Q4c']"), message);
+
+        System.out.println("Form details entered: Name - Crio Learner, Message - " + message);
 
         // Select the 'Automation Testing experience' radio button (assuming the label
         // contains 'Automation Testing')
@@ -112,12 +117,13 @@ public class TestCases extends Wrappers {
         // Wait for the success message and print it
         WebElement successMessage = driver.findElement(By.xpath("//div[text()='Thanks for your response, Automation Wizard!']"));
                 
-        System.out.println("Form Submission Success Message: " + successMessage);
+        System.out.println("Form Submission Success Message: " + successMessage.getText());
     }
 
     @AfterTest
     public void endTest() {
         driver.close();
         driver.quit();
+        System.out.println("Browser closed and test execution completed.");
     }
 }
