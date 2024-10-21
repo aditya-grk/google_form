@@ -126,6 +126,8 @@ public class TestCases extends Wrappers {
         WebElement successMessage = driver.findElement(By.xpath("//div[text()='Thanks for your response, Automation Wizard!']"));
                 
         System.out.println("Form Submission Success Message: " + successMessage.getText());
+        System.out.println("Thanks for your response, Automation Wizard ");
+        System.out.println("Thanks for your response, Automation Wizard ");
     }
 
     @AfterTest
